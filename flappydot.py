@@ -49,7 +49,7 @@ class PillarPair(Sprite):
 
 if __name__ == "__main__":
     root = tk.Tk()
-    root.title("Flappy dot")
+    root.title("Monkey Banana Game")
  
     # do not allow window resizing
     root.resizable(False, False)
