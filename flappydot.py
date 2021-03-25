@@ -4,6 +4,10 @@ from gamelib import Sprite, GameApp, Text
 
 CANVAS_WIDTH = 800
 CANVAS_HEIGHT = 500
+STARING_VELOCITY = -30
+PILLAR_STARTING_VELOCITY = -10
+PILLAR_SPEED = 10
+
 
 UPDATE_DELAY = 33
 GRAVITY = 2.5
@@ -31,7 +35,9 @@ class Dot(Sprite):
 class FlappyGame(GameApp):
     def create_sprites(self):
         self.dot = Dot(self, 'images/dot.png', CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2)
-
+        self.dot = Dot(self, 'images/dot.png', CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2)
+        self.pillar_pair = PillarPair(self, 'images/pillar-pair.png', CANVAS_WIDTH, CANVAS_HEIGHT // 2)
+        self.elements.append(self.pillar_pair)
         self.elements.append(self.dot)
 
     def init_game(self):
@@ -48,6 +54,11 @@ class FlappyGame(GameApp):
         self.dot.start()
         self.dot.jump()
 
+class PillarPair(Sprite):
+    def update(self):
+        self.vx = PILLAR_STARTING_VELOCITY
+        self.x += self.vx
+        self.vx += PILLAR_SPEED
 
 if __name__ == "__main__":
     root = tk.Tk()
