@@ -21,7 +21,9 @@ class Dot(Sprite):
 class FlappyGame(GameApp):
     def create_sprites(self):
         self.dot = Dot(self, 'images/dot.png', CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2)
-
+        self.dot = Dot(self, 'images/dot.png', CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2)
+        self.pillar_pair = PillarPair(self, 'images/pillar-pair.png', CANVAS_WIDTH, CANVAS_HEIGHT // 2)
+        self.elements.append(self.pillar_pair)
         self.elements.append(self.dot)
 
     def init_game(self):
@@ -36,10 +38,11 @@ class FlappyGame(GameApp):
     def on_key_pressed(self, event):
         pass
 
-
+class PillarPair(Sprite):
+    pass
 if __name__ == "__main__":
     root = tk.Tk()
-    root.title("Monkey Banana Game")
+    root.title("Flappy dot")
  
     # do not allow window resizing
     root.resizable(False, False)
