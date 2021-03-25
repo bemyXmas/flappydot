@@ -5,6 +5,9 @@ from gamelib import Sprite, GameApp, Text
 CANVAS_WIDTH = 800
 CANVAS_HEIGHT = 500
 STARING_VELOCITY = -30
+PILLAR_STARTING_VELOCITY = -10
+PILLAR_SPEED = 10
+
 
 UPDATE_DELAY = 33
 GRAVITY = 2.5
@@ -39,7 +42,11 @@ class FlappyGame(GameApp):
         pass
 
 class PillarPair(Sprite):
-    pass
+    def update(self):
+        self.vx = PILLAR_STARTING_VELOCITY
+        self.x = self.x + self.vx
+        self.vx = self.vx + PILLAR_SPEED
+
 if __name__ == "__main__":
     root = tk.Tk()
     root.title("Flappy dot")
