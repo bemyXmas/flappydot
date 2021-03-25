@@ -44,8 +44,8 @@ class FlappyGame(GameApp):
 class PillarPair(Sprite):
     def update(self):
         self.vx = PILLAR_STARTING_VELOCITY
-        self.x = self.x + self.vx
-        self.vx = self.vx + PILLAR_SPEED
+        self.x += self.vx
+        self.vx += PILLAR_SPEED
 
 if __name__ == "__main__":
     root = tk.Tk()
