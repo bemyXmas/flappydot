@@ -4,12 +4,18 @@ from gamelib import Sprite, GameApp, Text
 
 CANVAS_WIDTH = 800
 CANVAS_HEIGHT = 500
+STARING_VELOCITY = -30
 
 UPDATE_DELAY = 33
 GRAVITY = 2.5
 
 class Dot(Sprite):
-    pass
+    def init_element(self):
+        self.vy = STARING_VELOCITY
+
+    def update(self):
+        self.y = self.y + self.vy
+        self.vy = self.vy + GRAVITY
 
 
 class FlappyGame(GameApp):
